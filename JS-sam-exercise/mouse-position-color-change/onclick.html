@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.body.addEventListener('click', (event) => {
+            
+            const x = event.clientX;
+            const y = event.clientY;
+            const color = getColor(event);
+            
+
+            document.body.style.backgroundColor = color;
+
+            function getColor(e) {
+                
+
+                if(x%2 === 0 && y%2 === 0){
+                    return "red";
+                } else if (x%2 === 1 && y%2 === 1){
+                    return "blue";
+                } else {return "green"}
+            }
+
+            console.log(`${x}, ${y}, ${document.body.style.backgroundColor}`)
+
+        })
+
+
+
+        // document.body.addEventListener('click', (event) =>{
+        //     const x = event.clientX;
+        //     const y = event.clientY;
+
+        //     if (x%2 == 0 && y%2 == 0){
+        //         document.body.style.backgroundColor = "red";
+        //     } else if (x%2 == 1 && y%2 == 1){
+        //         document.body.style.backgroundColor = "blue";
+        //     } else {document.body.style.backgroundColor = "green";} 
+
+        //     console.log(`${x}, ${y}, ${document.body.style.backgroundColor}`);
+        // })
+    </script>
+</body>
+</html>

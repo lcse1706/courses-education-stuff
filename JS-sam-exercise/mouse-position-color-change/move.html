@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        body {
+            height: 100vh;
+        }
+        h1{
+            text-align: center;
+            line-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <h1>Move your Mouse</h1>
+
+    <script>
+
+        const h1 = document.querySelector('h1');
+
+        document.body.addEventListener('mousemove', function(e){
+            const x = e.clientX;
+            const y = e.clientY;
+
+            h1.textContent = `${x}, ${y}`;
+
+            const red = 255 * (x/window.innerWidth);
+            const green = 255 * (y/window.innerHeight);
+            const blue = 255 * ((x*y)/(window.innerHeight*window.innerWidth));
+
+            document.body.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`
+        })
+
+    </script>
+</body>
+</html>
