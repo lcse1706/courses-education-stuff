@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            position: fixed;
+            top: 30px;
+            left: 20px;
+            width: 200px;
+            height: 200px;
+            background-color: #000;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+
+    <script>
+
+        const div = document.querySelector('div');
+
+        let divX = 150;
+        let divY = 50;
+        let squareMove = false;
+        let insertDivX;
+        let insertDivY;
+
+        div.style.left = `${divX}px`
+        div.style.top = `${divY}px`
+
+        div.addEventListener('mousedown', (e) => {
+            div.style.backgroundColor = "grey";
+            squareMove = !squareMove;
+
+            insertDivX = e.offsetX;
+            insertDivY = e.offsetY;
+            
+        })
+        div.addEventListener('mousemove', (e) => {
+            
+            if(squareMove){
+
+                divX = e.clientX - insertDivX;
+                divY = e.clientY - insertDivY;
+
+                div.style.left = `${divX}px`;
+                div.style.top = `${divY}px`;
+            }
+
+        })
+        div.addEventListener('mouseup', () => {
+            div.style.backgroundColor = "black";
+            squareMove = !squareMove;    
+
+        })
+
+
+
+
+
+    </script>
+</body>
+</html>
