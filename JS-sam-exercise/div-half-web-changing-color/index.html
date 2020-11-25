@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+    *{
+        box-sizing: border-box;
+        margin: 0;
+    }
+    </style>
+</head>
+<body>
+    
+    <script>
+        document.body.style.height = "1000vh";
+
+        let size = 10;
+        let flag = true;
+
+        const divElement = document.createElement('div');
+        document.body.appendChild(divElement);
+
+        divElement.style.width = ('100%');
+        divElement.style.height = `${size}px`;
+        divElement.style.backgroundColor = 'green';
+        divElement.style.position = 'fixed';
+        divElement.style.top = '0';
+        divElement.style.left = '0';
+
+
+        function changeHeight() {
+
+            if(size > (window.innerHeight/2)){
+                flag = !flag
+                divElement.style.backgroundColor = 'red';
+            }else if (size == 0){
+                flag = !flag
+                divElement.style.backgroundColor = 'green';
+            }
+            
+            if (flag){
+            size += 10;
+
+            } else {
+                size -=10
+            }
+            divElement.style.height = `${size}px`;
+         
+        }
+        window.addEventListener('scroll', changeHeight);
+
+
+    </script>
+</body>
+</html>

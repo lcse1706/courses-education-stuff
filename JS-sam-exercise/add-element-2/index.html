@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+    </style>
+</head>
+<body>
+    <button>Dodaj element listy.</button>
+    <ul></ul>
+
+    <script>
+        const btn = document.querySelector('button');
+        const ul = document.querySelector('ul');
+        let counter = 1;
+
+        const addLi = function() {
+            const liElement = document.createElement('li');
+            liElement.textContent = counter;
+            if ( counter % 3 == 0){
+                liElement.style.fontSize = '30px';
+            }
+            ul.appendChild(liElement);
+            counter +=2;
+        }
+
+        btn.addEventListener('click', addLi);
+
+
+
+    </script>
+</body>
+</html>

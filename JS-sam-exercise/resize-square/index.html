@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 400vh;
+        }
+        div{
+            
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+
+    <script>
+
+        const square = document.querySelector('div');
+        let widthProperty = square.offsetWidth;
+        let heightProperty = square.offsetHeight;
+        let toogle = 0;
+        document.addEventListener('scroll', function (){
+            
+            if (toogle == 0){
+            widthProperty += 10;
+            heightProperty += 10;
+            } else{
+            widthProperty -= 10;
+            heightProperty -= 10;
+            }
+
+            if (widthProperty == 500){
+                toogle = 1;
+            }else if(widthProperty == 30){
+                toogle = 0;
+            }
+            square.style.width = `${widthProperty}px`;
+            square.style.height = `${heightProperty}px`;
+        })
+
+    </script>
+</body>
+</html>
