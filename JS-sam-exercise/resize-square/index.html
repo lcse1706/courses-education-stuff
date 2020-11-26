@@ -6,7 +6,7 @@
     <title>Document</title>
     <style>
         body{
-            height: 400vh;
+            height: 700vh;
         }
         div{
             
@@ -28,10 +28,10 @@
         const square = document.querySelector('div');
         let widthProperty = square.offsetWidth;
         let heightProperty = square.offsetHeight;
-        let toogle = 0;
+        let grow = true;
         document.addEventListener('scroll', function (){
             
-            if (toogle == 0){
+            if (grow){
             widthProperty += 10;
             heightProperty += 10;
             } else{
@@ -40,9 +40,9 @@
             }
 
             if (widthProperty == 500){
-                toogle = 1;
+                grow = !grow;
             }else if(widthProperty == 30){
-                toogle = 0;
+                grow = !grow;
             }
             square.style.width = `${widthProperty}px`;
             square.style.height = `${heightProperty}px`;
