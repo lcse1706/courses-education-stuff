@@ -2,7 +2,7 @@ const input = document.querySelector('input');
 const div = document.querySelector('div')
 
 const passwords = ['user', 'Lena', 'Ewa', 'Olivia'];
-const messages = ['Important Content', 'Beautiful Name', "Wife's Name", 'Lovely name for girl'];
+const messages = ['Important Content.', 'Beautiful Name.', "Wife's Name.", 'Lovely name for girl.'];
 
 input.addEventListener('input', (e) => {
     div.textContent = '';
