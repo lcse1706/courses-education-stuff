@@ -9,13 +9,18 @@ let options = [];
 
 const addAdvise = (e) => {
     e.preventDefault();
-    options.push(input.value);
-    alert(`Dodano ${input.value}.`)
-    input.value = '';
+    if(input.value){
+        options.push(input.value);
+        alert(`Dodano ${input.value}.`)
+        input.value = '';
+    } else {
+        alert("Enter an option")
+    }
 }
 const resetAll = (e) => {
     e.preventDefault();
     options = [];
+    // options.length = 0;
     h1.textContent = '';
     alert("Reset Copleted");
 }
@@ -29,7 +34,7 @@ const giveAdvice = () => {
 }
 const listOptions = () => {
     if(options.length){
-        alert(`Avaliable options : ${options}.`);
+        alert(`Avaliable options : ${options.join(" --- ")}.`);
     } else {
         alert("No Avaliable Options.")
     }
