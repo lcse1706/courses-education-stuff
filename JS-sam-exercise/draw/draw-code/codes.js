@@ -13,7 +13,7 @@ const getRandomCode = () => {
 
     for(let i = 0; i<codesNumber; i++){
 
-        const div = document.createElement('div');
+        const div = document.createElemente('div');
         
     
         for(let j = 0; j<codeLenght; j++){

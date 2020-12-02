@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-size: 26px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input type="text">
+        <button>Dodaj</button>
+    </form>
+    <div></div>
+    <script>
+        const btn = document.querySelector('button');
+        const input = document.querySelector('input')
+        const div = document.querySelector('div');
+
+        let names = [];
+
+        const addName = (e) => {
+            e.preventDefault();
+            
+            if (input.value.length) {
+                for (name of names){
+                    if(name === input.value){
+                        alert("Juz podano takie imię.")
+                        return
+                    }
+                }
+                names.push(input.value);
+                div.textContent += input.value + ", ";
+                input.value = '';
+            } else {
+                alert("Nie wpisano imienia")
+            }
+        }
+        btn.addEventListener('click', addName);
+        </script>
+</body>
+</html>
