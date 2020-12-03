@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Game "Paper, Stone, Scissors"</h1>
+
+    <div class="select">
+        <h2>Make your choice:</h2>
+
+        <img data-option="paper" src="paper.jpg" alt="Picture of hand making paper.">
+        <img data-option="stone" src="stone.jpg" alt="Picture of hand making stone.">
+        <img data-option="scissors" src="scissors.jpg" alt="Picture of hand making scrissors.">
+
+        <button class="start">Let's Play!</button>
+    </div>
+
+    <div class="panel-left">
+        <h3>Result of Game</h3>
+        <p>Your choice: <span data-summary="your-choice"></span></p>
+        <p>Computers choice: <span data-summary="ai-choice"></span></p>
+        <h2>Winner: <span data-summary="who-win"></span></h2>
+    </div>
+
+    <div class="panel-right">
+        <h3>Current Results</h3>
+        <p class="numbers">Amount of games: <span>0</span></p>
+        <p class="wins">Wins: <span>0</span></p>
+        <p class="losses">Losses: <span>0</span></p>
+        <p class="draws">Draws: <span>0</span></p>
+    </div>
+
+    <script src="game.js"></script>
+
+</body>
+</html>
