@@ -13,7 +13,7 @@ h3 {
     text-align: center;
 }
 
-h2{
+h2 {
     font-size: 34px;
     margin-top: 10px;
 }
@@ -21,7 +21,7 @@ h2{
 .select {
     margin: 0 auto;
     text-align: center;
-    
+
 }
 
 .select h2 {
@@ -36,7 +36,7 @@ h2{
 
 .select button {
     display: block;
-    margin: 20px auto 50px auto; 
+    margin: 20px auto 50px auto;
     padding: 8px 20px;
     text-transform: uppercase;
     font-size: 30px;
@@ -53,12 +53,16 @@ h2{
 }
 
 .panel-left,
-.panel-right{
-display: inline-block;
-width: 48%;
-text-align: center;
+.panel-right {
+    display: inline-block;
+    width: 48%;
+    text-align: center;
 }
 
-p{
+p {
     font-size: 20px;
+}
+
+span {
+    font-weight: bold;
 }

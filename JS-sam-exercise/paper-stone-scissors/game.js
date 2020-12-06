@@ -1,59 +1,89 @@
-const gameSummary = {
-    numbers: 0,
+const summary = {
+    games: 0,
     wins: 0,
     losses: 0,
     draws: 0,
 }
 
-const game = {
-    playerHand: "",
-    aiHand: "",
+const result = {
+    playerHand: '',
+    aiHand: '',
 }
 
+const hands = [...document.querySelectorAll('img')];
 
-const btn = document.querySelector('.start');
-const options = document.querySelectorAll('.select img');
+// Player Pick
 
-
-//Player Choice
-
-const pickOption = (e) => {
-    game.playerHand = e.target.dataset.option;
-    options.forEach(option => option.style.boxShadow = "")
-    e.target.style.boxShadow = '0 0 0 4px red';
+function pickHand() {
+    result.playerHand = this.dataset.option;
+    hands.forEach((hand) => hand.style.boxShadow = '');
+    this.style.boxShadow = "0 0 0 4px red";
 }
 
-options.forEach(option => {
-    option.addEventListener('click', pickOption)
-})
+// Ai Pick
 
-//Computer choice
-
-const aiChoice = () => {
-    return options[Math.floor(Math.random()*3)].dataset.option;
+function pickAi() {  
+    result.aiHand = hands[Math.floor(Math.random() * 3)].dataset.option;
+    
 }
 
-//Check Result
+// Who win
 
-function checkResult(player, ai) {
-    if ( player === ai){
-        return "draw";
-    } else if (player === "stone" && ai === "scissors" || player === "paper" && ai === "stone" || player === "scissors" && ai === "stone"){
-        return "win"
-    } else {return "lose"}
+function whoWin(player, ai){
+
+    if (player == ai){
+        return "draw";  
+    } else if (player == "stone" && ai == "scissors" || player == "paper" && ai == "stone" || player == "scissors" && ai == "") {
+        return "win";
+     } else {
+        return "lose";
+     }
 }
 
-// Let's Play !
+// Print Result
 
-btn.addEventListener('click', () => {
-    if(!game.playerHand){ 
-        return alert("Pick One!")
+function printResult(score , player, ai){
+    document.querySelector('[data-summary="your-choice"]').textContent = player;
+    document.querySelector('[data-summary="ai-choice"]').textContent = ai;
+
+    if(score == "win") {
+        document.querySelector('[data-summary="who-win"]').textContent = "You Win !";
+        document.querySelector('[data-summary="who-win"]').style.color = 'green';
+        document.querySelector('.wins span').textContent = ++summary.wins;
+    }else if (score == "lose") {
+        document.querySelector('[data-summary="who-win"]').textContent = "You Lose !";
+        document.querySelector('[data-summary="who-win"]').style.color = 'red';
+        document.querySelector('.losses span').textContent = ++summary.losses;
+    }else {
+        document.querySelector('[data-summary="who-win"]').textContent = "Draw";
+        document.querySelector('[data-summary="who-win"]').style.color = 'grey';
+        document.querySelector('.draws span').textContent = ++summary.draws;
     }
 
-    game.aiHand = aiChoice();
-    const gameResult = checkResult(game.playerHand, game.aiHand);
+    document.querySelector('.numbers span').textContent = ++summary.games;
+}
+// Clear Pick
 
-    console.log(game.playerHand);
-    console.log(game.aiHand);
-    console.log(gameResult); 
-})
+function clearPick(){
+    hands.forEach((hand) => hand.style.boxShadow = '');
+    result.playerHand = '';
+}
+
+// Start Game
+
+function startGame() {
+    // console.log("dziala");
+    if (result.playerHand == ''){
+        return alert("Pick Your Hand !")
+    }
+    pickAi();
+    const score = whoWin(result.playerHand, result.aiHand);
+    printResult(score, result.playerHand, result.aiHand);
+    clearPick();
+ 
+//    console.log(result.playerHand);
+//     console.log(result.aiHand);
+}
+
+document.querySelector('.start').addEventListener('click', startGame);
+hands.forEach((hand) => hand.addEventListener('click', pickHand)); 
