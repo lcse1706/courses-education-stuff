@@ -33,7 +33,7 @@ function whoWin(player, ai){
 
     if (player == ai){
         return "draw";  
-    } else if (player == "stone" && ai == "scissors" || player == "paper" && ai == "stone" || player == "scissors" && ai == "") {
+    } else if (player == "stone" && ai == "scissors" || player == "paper" && ai == "stone" || player == "scissors" && ai == "paper") {
         return "win";
      } else {
         return "lose";
