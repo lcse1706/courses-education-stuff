@@ -33,8 +33,6 @@ const keyChange = (e) => {
     }        
 }
 
-
-
 const activeDot = () => {
     const activeDot = dots.findIndex( dot => dot.classList.contains('active'));
     dots[activeDot].classList.remove('active');
