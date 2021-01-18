@@ -1,0 +1,533 @@
+/* Page is build with mobile-first aproach. Media querries is used to adjust page to bigger resolutions like desktop. I had no access to bigger resoluton than 1366x768. Hopefully website work on bigger resolutions fine too.
+Kravspecificering:
+
+I ditt projekt så ska du skapa en webbsida som uppfyller följande kriterier:
+
+Hemsidan skall bestå av minst 5 sidor
+Du använder HTML5 och CSS3 för uppbyggnad
+Sidan skall vara användarvänlig
+All grafik som används på sidan skall vara av rätt format och optimerad för webb samt följa alla gällande lagar.
+Projektet skall fungera i de vanligaste webbläsarna (Siktar du på C eller högre ska den även fungera i mobila gränssnitt)
+Projektet skall valideras som korrekt HTML5 och CSS3 dokument
+
+Notera: Ditt projekt ska följa skolans värdegrund och får därmed inte innehålla något olagligt eller olämpligt material. Exempelvis: Droger, Nazism/Rasism eller kränkande material. 
+
+Förtydligande av kraven för projektet: 
+
+Minimikrav för ditt projekt:
+1 . Antal filer
+
+Minst 5 st HTML filer
+ (1st första sida (index.html))
+4st undersidor
+1st CSS fil
+2 . HTML 5
+
+Validerar
+Fungerar i de vanligaste webbläsarna
+3 . CSS
+
+Extern
+Validerar
+Fungerar i de vanligaste webbläsarna
+4 . Innehåll
+
+Bild
+Text
+Valfritt: Video eller Ljud
+5 . Lagar, Etik och Moral
+
+Projektet följer gällande lagar
+Projektet följer skolans värdegrund
+6 . Webbriktlinjer
+
+Arbeta aktivt med webbriktlinjer prioritetsnivå 1 (webbriktlinjer.se)
+Arbeta aktivt med minst 5 webbriktlinjer med prioritetsnivå 2 eller högre.
+7 . Användarvänlig
+
+Läsbarhet
+Färgval
+Struktur
+Tydlighet
+Korrekt kod
+Lätt att navigera
+8 . Validering
+
+HTML validerar korrekt i validator
+CSS validerar korrekt i validator
+Manuella kontrollera av kod
+
+
+Ditt projekt kommer enbart innehålla HTML5 och CSS. Du har inte möjlighet att använda andra programmeringsspråk i detta projekt. Var därför uppmärksam på att du inte kan bygga upp exempelvis en blogg eller en fungerande försäljningssida då detta kräver fler kodspråk och en server. 
+
+
+
+Observera: Projektet ska inte innehålla Javascript, PHP eller databaser samt att du inte får använda färdiga ramverk.
+ */
+
+/* Margin and padding reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Wrapper settings */
+
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+    min-height: 100vh;
+    max-width: 1600px;
+    background-color: #FAC49D;
+}
+
+.about,
+.aboutme,
+.portfolio,
+.services,
+.contact {
+    flex-grow: 1;
+}
+
+/* Text Format */
+
+.topic {
+    padding: 5vh 0;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.28);
+    color: white;
+    align-self: flex-start;
+}
+
+.title {
+    padding: 5vh 0;
+    font-family: 'Raleway', 'sans-serif';
+    text-align: center;
+    background-color: white;
+}
+
+.text {
+    padding-bottom: 10px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 22px;
+    text-align: center;
+    line-height: 1.5em;
+}
+
+.top {
+    text-align: center;
+    margin: 20px;
+}
+
+.top a {
+    text-decoration: none;
+    font-family: 'Open-sans', 'sans-serif';
+    color: rgb(78, 77, 77);
+}
+
+/* Resolution adjustment */
+
+@media(orientation: portrait) and (min-width: 410px) {
+    .text {
+        font-size: 30px;
+    }
+}
+
+@media(orientation: portrait) and (min-width: 1024px) {
+    .text {
+        font-size: 30px;
+    }
+}
+
+@media(orientation: landscape) and (min-width: 1024px) {
+    .text {
+        font-size: 30px;
+    }
+}
+
+@media(orientation: landscape) and (min-width: 1280px) {
+    .text {
+        font-size: 36px;
+    }
+}
+
+/* Header Settings*/
+
+header {
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: #E3B984;
+    height: 100px;
+}
+
+header a {
+    width: 100px;
+    text-align: center;
+    align-self: center;
+    color: black;
+    text-decoration: none;
+    cursor: default;
+}
+
+/* Logo settings */
+
+#logo img {
+    width: 50%;
+}
+
+#logo h1 {
+    margin-top: -5%;
+    font-family: 'lobster';
+    font-weight: 400;
+    font-size: 12px;
+}
+
+/* Navigation settings */
+
+header nav {
+    display: flex;
+    flex-grow: 1;
+    margin: 10px 0 10px 0;
+    width: 70%;
+    overflow: hidden;
+}
+
+nav ul {
+    display: flex;
+    flex-flow: row wrap;
+    flex-grow: 1;
+}
+
+nav ul li {
+    display: inline-block;
+    flex-grow: 1;
+    text-align: center;
+    width: 49%;
+    font-size: 22px;
+}
+
+nav ul li a {
+    padding: 2px;
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+    cursor: default;
+}
+
+/* Resolution adjustment */
+
+@media(orientation: portrait) and (min-width: 410px) {
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+
+@media(orientation: portrait) and (min-width: 1024px) {
+    nav ul li a {
+        font-size: 18px;
+    }
+}
+
+@media(orientation: landscape) and (min-width: 640px) {
+    header nav ul li {
+        align-self: center;
+    }
+
+    header nav ul li {
+        width: 20%;
+        border-right: 1px solid black;
+    }
+
+    header nav ul li:nth-last-child(1) {
+        border: none;
+    }
+}
+
+@media(orientation: landscape) and (min-width: 1024px) {
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+
+@media(orientation: landscape) and (min-width: 1280px) {
+    .navhome {
+        opacity: 0.7;
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        max-width: 1600px;
+    }
+
+    nav ul li a:hover {
+        text-shadow: 1px 1px black;
+        color: white;
+    }
+}
+
+/* About Studio Section Settings */
+
+.about video {
+    width: 100%;
+}
+
+.about p {
+    width: 90%;
+    margin: 5px auto;
+}
+
+.about a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+/* Resoluton Adjustment */
+
+@media(orientation: landscape) and (min-width: 1280px) {
+    .about p {
+        width: 80%;
+        margin: 20px auto;
+    }
+
+    .about a {
+        opacity: .8;
+    }
+
+    .about a:hover {
+        opacity: 1;
+    }
+}
+
+/* About Freya Section Settings*/
+
+.aboutme {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.aboutme figure img {
+    width: 100%;
+}
+
+.aboutme a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+/* Resolution Adjusment */
+
+@media(orientation: landscape) and (min-width: 1280px) {
+
+    .aboutme figure {
+        width: 50%;
+    }
+
+    .aboutme p {
+        font-size: 22px;
+        width: 50%;
+        align-self: center;
+        padding: 0 20px;
+    }
+
+    .aboutme a {
+        opacity: .8;
+    }
+
+    .aboutme a:hover {
+        opacity: 1;
+    }
+}
+
+/* Portfolio Section Settings */
+
+.portfolio img {
+    width: 100%;
+}
+
+/* Resolution Adjustment */
+
+@media(orientation: landscape) and (min-width: 1024px) {
+    .portfolio figure {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+    }
+
+    .portfolio figure img {
+        margin: 5vw 0;
+        width: 40%;
+    }
+}
+
+/* Services Section Settings */
+
+.services figure img {
+    width: 100%;
+}
+
+.services ul li {
+    list-style: none;
+}
+
+.services ul li p {
+    font-size: 18px;
+    text-align: left;
+}
+
+/* Resolution Adjustment */
+
+@media(orientation: portrait) and (min-width: 410px) {
+    .services ul li p {
+        font-size: 22px;
+    }
+}
+
+@media(orientation: landscape) and (min-width: 1024px) {
+    .services ul li p {
+        font-size: 20px;
+    }
+}
+
+@media(orientation: landscape) and (min-width: 1280px) {
+    .services figure {
+        margin: 0 auto;
+        width: 50%;
+    }
+
+    .services ul li p {
+        margin: 20px;
+        font-size: 24px;
+    }
+}
+
+/* Contact Section Settings*/
+
+.contact input,
+.contact textarea,
+.contact button {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    padding: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.contact input {
+    height: 36px;
+}
+
+.contact textarea {
+    height: 88px;
+}
+
+.contact button {
+    height: 40px;
+    font-size: 14px;
+    text-transform: uppercase;
+    background-color: #111;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 30px 15px 30px;
+}
+
+.contact aside .socials {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.contact aside .socials img {
+    width: 36px;
+    float: left;
+}
+
+.contact aside .socials a {
+    color: black;
+}
+
+.contact aside .socials span {
+    line-height: 36px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    float: left;
+}
+
+.contact aside .socials .social {
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.contact aside p {
+    padding: 20px;
+}
+
+/* Resolution Adjustemnt */
+
+@media(orientation: landscape) and (min-width: 1024px) {
+    .contact form {
+        padding: 0 20px;
+    }
+}
+
+@media(orientation: landscape) and (min-width: 1280px) {
+    .contact {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .contact form {
+        padding: 0 20px;
+        width: 50%;
+    }
+
+    .contact aside {
+        display: flex;
+        flex-flow: row wrap;
+        flex-basis: 50%;
+    }
+
+    .contact aside p {
+        width: 50%;
+        font-size: 24px;
+    }
+
+    .contact aside .socials {
+        width: 100%;
+    }
+
+    .contact aside .social {
+        opacity: .8;
+        align-self: flex-start;
+
+    }
+
+    .contact aside .social:hover {
+        opacity: 1;
+    }
+}
+
+/* Footer Section Settings */
+
+footer {
+    height: 10vh;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    line-height: 10vh;
+    background-color: #E3B984;
+}
