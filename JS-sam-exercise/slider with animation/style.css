@@ -146,4 +146,21 @@ html {
     }
 
 }
+@media (min-width: 1025px){
+    .baner .member h1 {
+        font-size: 8rem;
+    }
+    
+    .baner .member h2 {
+        font-size: 4rem;
+    }
+    .baner .member {
+        
+        top: 5%;
+        right: 0;
+        width: 60%;
+        
+        animation: text 4s linear infinite;
+    }
+}
 ;
