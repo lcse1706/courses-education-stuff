@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0 auto;
+    max-width: 1920px;
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+header {
+    height: 60vh;
+    width: 100%;
+    position: relative;
+    background-image: url("img/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+}
+
+header div {
+    background-color: rgba(0, 0, 0, 0.3);
+    min-height: 60vh;
+}
+
+h1 {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 46px;
+    color: #fff;
+}
+
+
+.about {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    background-color: rgba(238, 238, 238, 0.45);
+    color: rgb(27, 26, 26);
+    font-size: 18px;
+    border-radius: 21px;
+    padding: 13px;
+}
+
+.about:hover {
+    background-color: rgba(238, 238, 238, 0.75);
+}
+
+h2 {
+    font-size: 42px;
+    flex-basis: 100%;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+    background-color: #ddd;
+    border-radius: 20px;
+}
+
+section.skills {
+    flex-basis: 60%;
+    height: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-around;
+}
+
+section.skills i {
+    font-size: 66px;
+}
+
+section.contact {
+    flex-basis: 20%;
+    height: 150px;
+}
+
+.contact .socials {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.contact .wide {
+    margin-left: 9%;
+    width: 100%;
+}
+
+.contact .socials img {
+    width: 36px;
+    float: left;
+}
+
+.contact .socials a {
+    cursor: pointer;
+    opacity: .8;
+    color: black;
+}
+
+.contact .socials span {
+    margin-left: 5px;
+    line-height: 36px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    float: left;
+}
+
+.contact .social {
+    margin-bottom: 20px;
+}
+
+.contact a:hover {
+    opacity: 1;
+}
+
+section.education {
+    flex-basis: 40%;
+    height: 70vh;
+    background-color: #ccc;
+}
+
+section.courses {
+    flex-basis: 40%;
+    height: 70vh;
+    background-color: #ccc;
+}
+
+section.portfolio {
+    flex-basis: 90%;
+    height: 30vh;
+    background-color: #ccc;
+}
+
+footer {
+    flex-basis: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #aaa;
+}
