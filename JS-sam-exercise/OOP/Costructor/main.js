@@ -54,3 +54,72 @@ svensk instanceof Object // true
 svensk instanceof Person // false
 
 // Object.getPrototypeOf
+
+//Classes
+
+class Animal {
+    constructor(age, name) {
+        this.age = age;
+        this.name = name;
+    }
+    breathe() {
+        console.log("Animal breathe");
+    }
+}
+
+const puppy = new Animal(1, "Buddy")
+
+class Mammal extends Animal {
+    constructor(age, hairs, name) {
+        super(age, name)
+        this.hairs = hairs;
+    }
+    drinkMilk() {
+        console.log("Drink milk");
+    }
+}
+
+const ssak = new Mammal (3, 'blond', "Maks");
+
+ssak.breathe();
+ssak.drinkMilk();
+
+class Human extends Mammal {
+    constructor(age, hairs, name, language) {
+        super(age, hairs, name)
+        this.language = language;
+    }
+    speak () {
+        console.log("Human Speaks")
+    }
+}
+
+const person = new Human(32, "black", "Lukas", "svenska");
+
+
+// This
+
+'use strict'  // tryb ścisły
+
+const fn = function () {
+    this.a = 5;
+}
+
+fn();
+
+function showName() {
+    console.log(this.name)
+}
+
+const gustav = {
+    name: 'Gustav',
+    showName: showName,
+}
+
+const agnes = {
+    name: 'Agnes',
+    showName: showName,
+}
+
+agnes.showName();
+gustav.showName();
