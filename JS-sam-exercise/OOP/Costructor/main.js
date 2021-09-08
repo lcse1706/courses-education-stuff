@@ -157,7 +157,90 @@ const cat = {
     }
 }
 
-cat.showAge();
-cat.showAge2();
+// cat.showAge();
+// cat.showAge2();
 
+//bond loss problem
+
+const szarik = {
+    children: ['buddy', 'frog'],
+
+    showChildren: function () {
+        this.children.forEach(function(child, index) {
+            console.log(this);
+        })
+    }
+}
+
+// szarik.showChildren();
+
+//Solution 
+
+// 1.that = this
+
+const szarik1 = {
+    children: ['buddy', 'frog'],
+
+    showChildren: function () {
+        const that = this;
+        this.children.forEach(function(child, index) {
+            console.log(that.children[index]);
+        })
+    }
+}
+
+// szarik1.showChildren();
+
+// 2. fo...of loop
+
+const szarik2 = {
+    children: ['buddy', 'frog'],
+
+    showChildren: function () {
+        for (const child of this.children) {
+            console.log(child);
+        }
+        }
+    }
+
+// szarik2.showChildren();
+
+// 3. Arrow Function
+
+const szarik3 = {
+    children: ['buddy', 'frog'],
+    showChildren: function() {
+        this.children.forEach((child, index) => {
+            console.log(this.children[index]);
+        })
+    }
+}
+
+// szarik3.showChildren();
+
+// 4. bind
+
+const szarik4 = {
+    children: ['buddy', 'frog'],
+    showChildren: function() {
+        this.children.forEach(function(child, index) {
+            console.log(this.children[index]);
+        }.bind(this))
+    }
+}
+
+// szarik4.showChildren();
+
+// 5. set permanent callback ass this
+
+const szarik5 = {
+    children: ['buddy', 'frog'],
+    showChildren: function() {
+        this.children.forEach(function(child, index) {
+            console.log(this.children[index]);
+        }, this)
+    }
+}
+
+szarik5.showChildren();
 
