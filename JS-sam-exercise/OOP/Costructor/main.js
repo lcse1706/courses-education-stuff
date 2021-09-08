@@ -244,3 +244,67 @@ const szarik5 = {
 
 szarik5.showChildren();
 
+// Hide data
+
+// 1. Convention -  _color
+
+class Cat {
+    constructor(color) {
+          this._color = color
+    }
+    getColor() {
+        return this._color;
+    }
+    setColor(value) {
+        if (color === "string"){
+            return this._color = value;
+        } else {
+            console.log('Wrong Value.')
+        }
+    }
+}
+
+const Simba = new Cat('black');
+
+// 2. Closure 
+
+ // Example 1
+
+class Dog {
+    constructor(name, color){
+        this.name = name;
+        let _color = dogColor;
+        this.getColor = () => color;
+        this.setColor = (color) => _color = color;
+    }
+
+}
+
+// Example 2
+
+
+class Vehicule {
+    constructor(name, counter, year) {
+        this.name = name;
+        let _counter = counter;
+        let _year = year;
+        let _changeCounter = 0;
+
+        this.getCounter = function(){
+            if(_changeCounter) alert(`Milage was changed ${_changeCounter} time/times`)
+            return _counter;
+        }
+        this.getYear = () => _year;
+
+        this.setCounter = function(value){
+            _changeCounter++;
+            return _counter = value;
+        }
+
+        
+
+    }
+}
+
+const mercedes = new Vehicule ("Mercedes", "80000", "2018");
+
