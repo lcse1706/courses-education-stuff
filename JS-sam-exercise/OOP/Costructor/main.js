@@ -123,3 +123,41 @@ const agnes = {
 
 agnes.showName();
 gustav.showName();
+
+//call and apply method
+
+const human = {
+    personnummer: 8904186541,
+}
+
+const showPn = function(name) {
+    console.log(`This is personnumer ${this.personnummer} of the person ${name}`)
+}
+
+showPn.call(human, 'Kalle');
+
+//apply works the same as call, but its possible to give array as arguments of function.
+
+//bind method
+
+const userData = showPn.bind(human, 'Eva');
+
+console.log(userData())
+
+
+// arrow funtion - inherit from olders.
+
+const cat = {
+    age: 8,
+    showAge() {
+        console.log(this.age, this)
+    },
+    showAge2: () => {
+        console.log(this.age, this)
+    }
+}
+
+cat.showAge();
+cat.showAge2();
+
+
