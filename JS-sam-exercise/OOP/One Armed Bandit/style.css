@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrap {
+    width: 80%;
+    margin: 5vh auto 0;
+    font-family: 'open sans', roboto, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 3vh;
+}
+
+.game{
+    margin-bottom: 3vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.color {
+    width: 25vw;
+    /* flex-grow: 1; */
+    height: 300px;
+    border: 3px solid rgb(90, 82, 82);
+}
+
+.play{
+    text-align: center;
+}
+
+.play input {
+    height: 60px;
+    font-size: 30px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    border: 2px solid black;
+}
+
+.play button {
+    margin-left: 10px;
+    height: 60px;
+    font-size: 30px;
+    padding: 10px;
+    width: 150px;
+    color: brown;
+    background-color: burlywood;
+
+}
+
+.play button:active {
+    color: burlywood;
+    background-color: brown;
+}
+
+.panel, .score {
+    font-size: 30px;
+    margin: 20px;
+}
+
+span{
+    font-weight: bold;
+}
+
+.win {
+    color: green;
+}
+
+.loss {
+    color: red;
+}

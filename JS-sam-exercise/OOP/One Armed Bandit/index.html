@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrap">
+        <h1>One Armed Bandit</h1>
+
+        <section class="game">
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+        </section>
+
+        <section class="play">
+            <input type="number" placeholder="Your bid" id="bid">
+            <button id="starts">Roll!</button>
+        </section>
+
+        <section class="panel">Your Credits: <span class="wallet"></span></section>
+
+        <section class="score">
+            <span class="result"></span> You played <span class="number">0</span> games. <span class="win">0</span> Wins <span class="loss">0</span> Lose
+        </section>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
