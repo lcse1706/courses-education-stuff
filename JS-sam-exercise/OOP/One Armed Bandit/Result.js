@@ -11,4 +11,4 @@ class Result {
     }
 }
 
-Result.moneyWinInGame(true,12);
+

@@ -1,7 +1,7 @@
 class Draw {
     constructor() {
         this.opitions = ['red', 'green', 'blue']
-        let _result = this.drawResult;
+        let _result = this.drawResult();
         this.getDrawResult = () => _result;
     }
 
@@ -10,12 +10,10 @@ class Draw {
         for (let i = 0; i < this.opitions.length; i++){
             const index = Math.floor(Math.random() * this.opitions.length)
             const color = this.opitions[index];
-            console.log(color);
             colors.push(color);
+            
         }
-
         return colors;
     }
 }
 
-const draw = new Draw();
