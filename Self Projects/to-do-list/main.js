@@ -34,6 +34,10 @@ class UI {
         singleTask.innerHTML = `${task.title} <a href="#" class="btn btn-danger btn-sm delete">X</a>`;
         
         list.appendChild(singleTask);
+        
+    }
+    static clearField() {
+        document.querySelector('.form-control').value = "";
     }
 
     static getTask() {
@@ -41,9 +45,13 @@ class UI {
         const task = new Task (input);
         UI.addTaskToList(task);
         taskList.push(task);
+        UI.clearField();
     }
 
-    
+    static deleteTask(el) {
+        if(el.classList.contains('delete')){
+            el.parentElement.remove();
+        }
     }
 }
 
@@ -57,4 +65,8 @@ const addBtn = document.querySelector('.add');
 addBtn.addEventListener('click', UI.getTask);
 
 // Event: Remove Task
+
+document.querySelector('#task-list').addEventListener('click', (e) => {
+    UI.deleteTask(e.target);
+})
 
