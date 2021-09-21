@@ -43,9 +43,14 @@ class UI {
     static getTask() {
         const input = document.querySelector('.form-control').value;
         const task = new Task (input);
-        UI.addTaskToList(task);
-        taskList.push(task);
-        UI.clearField();
+        if (input) {
+            UI.addTaskToList(task);
+            taskList.push(task);
+            UI.clearField();
+        } else {
+            alert("Wrong Value");
+        }
+        
     }
 
     static deleteTask(el) {
@@ -61,8 +66,7 @@ document.addEventListener('DOMContentLoaded', UI.displayList);
 
 // Event: Add task
 
-const addBtn = document.querySelector('.add');
-addBtn.addEventListener('click', UI.getTask);
+document.querySelector('.add').addEventListener('click', UI.getTask);
 
 // Event: Remove Task
 
