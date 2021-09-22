@@ -40,9 +40,14 @@ class UI {
         document.querySelector('.form-control').value = "";
     }
 
-    static getTask() {
+    static getTask(e) {
         const input = document.querySelector('.form-control').value;
         const task = new Task (input);
+
+        // if (e.code === 'Enter') {
+        //     e.preventDefault()
+        //     console.log(dupa);
+        // }        
         if (input) {
             UI.addTaskToList(task);
             taskList.push(task);
@@ -67,6 +72,11 @@ document.addEventListener('DOMContentLoaded', UI.displayList);
 // Event: Add task
 
 document.querySelector('.add').addEventListener('click', UI.getTask);
+document.body.addEventListener('keyup', (e) => {
+    if(e.code === 'Enter'){
+        UI.getTask();
+    }
+});
 
 // Event: Remove Task
 
