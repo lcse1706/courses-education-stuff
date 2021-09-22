@@ -42,18 +42,14 @@ class UI {
 
     static getTask(e) {
         const input = document.querySelector('.form-control').value;
-        const task = new Task (input);
-
-        // if (e.code === 'Enter') {
-        //     e.preventDefault()
-        //     console.log(dupa);
-        // }        
+        const task = new Task (input);    
         if (input) {
             UI.addTaskToList(task);
+            UI.showAlert("Task Added", "success");
             taskList.push(task);
             UI.clearField();
         } else {
-            alert("Wrong Value");
+            UI.showAlert("Wrong Value", "danger");
         }
         
     }
@@ -62,6 +58,19 @@ class UI {
         if(el.classList.contains('delete')){
             el.parentElement.remove();
         }
+    }
+
+    static showAlert (message, className){
+        const div = document.createElement('div');
+        div.className = `alert alert-${className}`;
+        div.appendChild(document.createTextNode(message));
+        const container = document.querySelector('.container');
+        const form = document.querySelector('#list-form');
+        container.insertBefore(div, form);
+
+        setTimeout(() => {
+            document.querySelector('.alert').remove()
+        }, 3000);
     }
 }
 
