@@ -95,9 +95,9 @@ class Store {
     }
   
     static removeTask(title) {
-      const tasks = Store.getBooks();
+      const tasks = Store.getTasks();
   
-      books.forEach((task, index) => {
+      tasks.forEach((task, index) => {
         if(task.title === title) {
           tasks.splice(index, 1);
         }
@@ -121,17 +121,14 @@ document.body.addEventListener('keyup', (e) => {
     }
 });
 
-//Add task to store
-
-
-
 
 // Event: Remove Task
 
 document.querySelector('#task-list').addEventListener('click', (e) => {
-    UI.deleteTask(e.target);
-    UI.showAlert("Task Removed", "success");
-    Store.removeTask(e.target.parentElement.previousElementSibling.textContent);
-
+    if(e.target.classList.contains('delete')) {
+        UI.deleteTask(e.target);
+        UI.showAlert("Task Removed", "success");
+        Store.removeTask(e.target.parentElement.textContent.slice(0,-2)); 
+    }
 })
 
