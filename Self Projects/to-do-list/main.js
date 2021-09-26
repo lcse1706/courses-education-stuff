@@ -1,5 +1,4 @@
 // Task Class: Represens Task
-const taskList = [];
 
 class Task {
     constructor(title){
@@ -11,20 +10,21 @@ class Task {
 
 class UI {
     static displayList() {
-       const savedTask = [
-        {   
-            title: 'Go to the gym'
-        },
-        {   
-            title: 'Read a book'
-        },
-        {   
-            title: 'Go shopping'
-        }
-       ];
+    //    const savedTask = [
+    //     {   
+    //         title: 'Go to the gym'
+    //     },
+    //     {   
+    //         title: 'Read a book'
+    //     },
+    //     {   
+    //         title: 'Go shopping'
+    //     }
+    //    ];
 
-       savedTask.forEach((task) => UI.addTaskToList(task));
-       savedTask.forEach((task) => taskList.push(task));
+        // const storedTasks = savedTask; 
+        const storedTasks = Store.getTasks();
+        storedTasks.forEach((task) => UI.addTaskToList(task));
     }
 
     static addTaskToList(task){
@@ -40,16 +40,16 @@ class UI {
         document.querySelector('.form-control').value = "";
     }
 
-    static getTask(e) {
+    static getTask() {
         const input = document.querySelector('.form-control').value;
         const task = new Task (input);    
         if (input) {
             UI.addTaskToList(task);
             UI.showAlert("Task Added", "success");
-            taskList.push(task);
             UI.clearField();
+            Store.addTask(task);
         } else {
-            UI.showAlert("Wrong Value", "danger");
+            UI.showAlert("Please Fill in Field", "danger");
         }
         
     }
@@ -73,6 +73,40 @@ class UI {
         }, 3000);
     }
 }
+// Store Class: Handles Storage
+
+
+class Store {
+    static getTasks() {
+      let tasks;
+      if(localStorage.getItem('tasks') === null) {
+        tasks = [];
+      } else {
+        tasks = JSON.parse(localStorage.getItem('tasks'));
+      }
+  
+      return tasks;
+    }
+  
+    static addTask(task) {
+      const tasks = Store.getTasks();
+      tasks.push(task);
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+  
+    static removeTask(title) {
+      const tasks = Store.getBooks();
+  
+      books.forEach((task, index) => {
+        if(task.title === title) {
+          tasks.splice(index, 1);
+        }
+      });
+  
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+  }
+  
 
 // Event: Display List
 
@@ -87,9 +121,17 @@ document.body.addEventListener('keyup', (e) => {
     }
 });
 
+//Add task to store
+
+
+
+
 // Event: Remove Task
 
 document.querySelector('#task-list').addEventListener('click', (e) => {
     UI.deleteTask(e.target);
+    UI.showAlert("Task Removed", "success");
+    Store.removeTask(e.target.parentElement.previousElementSibling.textContent);
+
 })
 
