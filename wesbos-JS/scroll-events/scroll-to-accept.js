@@ -5,7 +5,7 @@ const button = document.querySelector('.accept');
 
 
 function observerCallback(payload) {
-    if(payload[0].intersectionRatio === 1){
+    if(payload[0].intersectionRatio === 1){ // payload[0] becouse we can observe many things on the page
         button.disabled = false;
         //stop observing the button
         observer.unobserve(terms.lastElementChild);
@@ -13,7 +13,7 @@ function observerCallback(payload) {
     // else{
     //     button.disabled = true;
     // }
-     // payload[0] becouse we can observe many things on the page
+     
 }
 const observer = new IntersectionObserver(observerCallback, {
     root: terms,
