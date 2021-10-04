@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+
+
+    .turtle {
+        position: relative;
+        --x: 50px;
+        --y: 50px;
+        --rotateX: 0deg;
+        --rotate: 0deg;
+        
+        transform: translateX(var(--x)) translateY(var(--y)) rotateY(var(--rotateX))
+        rotate(var(--rotate))
+        ;
+        transition: 0.2s;
+    }
+    </style>
+    <div class="wrapper">
+        <img width="200" class="turtle" src="turtle.jpg" alt="turtle">
+    </div>
+
+    <script>
+        const turtle = document.querySelector('.turtle');
+        
+        let x = 0;
+        let y = 0;
+        let speed = 100;
+    
+        let flipped = false;
+        let rotate = 0;
+
+
+        function moveTurtle(event){
+            if (!event.key.includes('Arrow')) {return}
+            
+            switch(event.key){
+                case 'ArrowRight':
+                    x +=1;
+                    flipped = false;
+                    rotate = 0;
+                    break;
+                case 'ArrowLeft':
+                    x -=1;
+                    flipped = true;
+                    rotate = 0;
+                    break;
+                case 'ArrowUp':
+                    y -=1;
+                    rotate = -90;
+                    break;
+                case 'ArrowDown':
+                rotate = 90;
+                    y +=1;
+                    break;
+                default:
+                    console.log('Valid Value');
+                    break;
+            }
+            console.log(x, y)
+
+            turtle.setAttribute('style',`
+            --rotateX: ${flipped ? '180deg' : '0'};
+            --x: ${x * speed}px;
+            --y: ${y * speed}px;
+            --rotate: ${rotate}deg;
+            `);
+        }
+        document.addEventListener('keydown', moveTurtle);
+    </script>
+</body>
+</html>
