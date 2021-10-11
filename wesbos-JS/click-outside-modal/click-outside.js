@@ -7,8 +7,8 @@ function handleButton(e) {
     const button = e.currentTarget;
     const card = button.closest('.card');
 
-    // grab the image source
-
+    // grab the image source !!!
+    
     const imgSrc = card.querySelector('img').src;
     const desc = card.dataset.description;
     const name = card.querySelector('h2').textContent;

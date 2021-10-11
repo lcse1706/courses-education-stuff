@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const textOfMdnMap = `
+        Skip to main content
+Skip to search
+Skip to select language
+Technologies
+References & Guides
+Feedback
+Search MDN
+Site search... (Press "/" to focus)
+Technologie Internetowe dla developerów
+JavaScript
+Dokumentacja referencyjna JavaScript
+Obiekty
+Array
+Array.prototype.map()
+Change language
+View in English
+This page was translated from English by the community, but it's not maintained and may be out-of-date. To help maintain it, learn how to activate locales.
+Table of contents
+Składnia
+Opis
+Przykłady
+Array.prototype.map()
+Metoda map() tworzy nową tablicę zawierającą wyniki wywoływania podanej funkcji dla każdego elementu wywołującej tablicy.
+
+var liczby = [1, 5, 10, 15];
+var podwojenia = liczby.map(function(x) {
+    return x * 2;
+});
+// podwojenia to teraz [2, 10, 20, 30]
+// liczby to dalej [1, 5, 10, 15]
+
+var liczby = [1, 4, 9];
+var pierwiastki = liczby.map(Math.sqrt);
+// pierwiastki to teraz [1, 2, 3]
+// liczby to dalej [1, 4, 9]
+Copy to Clipboard
+Składnia
+var new_array = arr.map(function callback(currentValue, index, array){ // Zwróć element nowej tablicy }[, thisArg])
+Parametry
+callback
+Funkcja tworząca element nowej tablicy, przyjmująca trzy argumenty:
+currentValue
+Element tablicy nad którym obecnie pracujemy
+index
+Indeks elementu tablicy nad którym obecnie pracujemy
+array
+Oryginalna tablica na rzecz której wywołano metodę map
+thisArg
+Opcjonalny. Wartość jaką użyć jako this podczas wywołania callback
+Zwracana wartość
+Nowa tablica zawierająca elementy będące wynikami wywoływani funkcji callback.
+
+Opis
+map wykonuje funkcję (callback) raz na każdym z elementów tablicy w kolejności i tworzy nową tablicę na podstawie wyników. callback wywoływany jest tylko dla indeksów tablicy które mają przypisane wartości, włącznie z undefined. Nie jest wywoływany dla brakujących elementów tablicy (indeksów które nigdy nie były ustawione, usunięte lub nie miały nigdy przypisanych wartości).
+
+callback wywoływana jest z trzema argumentami: wartością elementu, jego indeksem i tablicą która jest trawersowana.
+
+W przypadku podania argumentu thisObject, zostanie on przekazany jako this przy każdym wywołaniu callback. Gdy go brak, lub ma wartość null, użyty zostanie obiekt globalny przyporządkowany do callback.
+
+map nie modyfikuje tablicy, na której jest wywołany.
+
+Zakres elementów przetwarzanych przez map ustalany jest przed pierwszym wywołaniem callback. Elementy dodane do tablicy po wywołaniu map nie zostaną odwiedzone przez callback. Jeśli istniejący, element tablicy zostanie zmieniony lub usunięty, wartością przekazaną do callback będzie wartość z momentu w którym map odwiedza dany element; elementy usunięte przed sprawdzeniem będą przekazane jako undefined.
+
+Przykłady
+Wielkie litery łańcuchów w tablicy
+Poniższy kod tworzy nową tablicę zawierającą pisaną wielkimi literami wersję wszystkich oryginalnych łańcuchów.
+
+var strings = ["hello", "Array", "WORLD"];
+function makeUpperCase(v)
+{
+    return v.toUpperCase();
+}
+var uppers = strings.map(makeUpperCase);
+// uppers są teraz pisane wielkimi literami ["HELLO", "ARRAY", "WORLD"]
+// strings są niezmienione
+Copy to Clipboard
+Mapowanie tablicy liczb do tablicy pierwiastków kwadratowych
+Poniższy kod pobiera tablicę liczb i tworzy nową tablicę z pierwiastkami kwadratowymi liczb z pierwszej tablicy.
+
+var liczby = [1, 4, 9];
+var pierwiastki = liczby.map(Math.sqrt);
+// otrzymane pierwiastki [1, 2, 3]
+// pozostające nadal liczby [1, 4, 9]
+Copy to Clipboard
+ 
+
+Last modified: 11 paź 2021, by MDN contributors
+
+Change your language
+Select your preferred language
+Polski
+ Change language
+Related Topics
+Obiekty
+Array
+Własności
+Array.prototype[@@unscopables]
+Array.prototype.length
+Metody
+Array.prototype[@@iterator]()
+get Array[@@species]
+Array.prototype.at()
+Array.prototype.concat()
+Array.prototype.copyWithin()
+Array.prototype.entries()
+Array.prototype.every()
+Array.prototype.fill()
+Array.prototype.filter()
+Array.prototype.find()
+Array.prototype.findIndex()
+Array.prototype.flat()
+Array.prototype.flatMap()
+Array.prototype.forEach()
+Array.from()
+Array.prototype.includes()
+Array.prototype.indexOf()
+Array.isArray()
+Array.prototype.join()
+Array.prototype.keys()
+Array.prototype.lastIndexOf()
+Array.prototype.map()
+Array.of()
+Array.prototype.pop()
+Array.prototype.push()
+Array.prototype.reduce()
+Array.prototype.reduceRight()
+Array.prototype.reverse()
+Array.prototype.shift()
+Array.prototype.slice()
+Array.prototype.some()
+Array.prototype.sort()
+Array.prototype.splice()
+Array.prototype.toLocaleString()
+Array.prototype.toSource()
+Array.prototype.toString()
+Array.prototype.unshift()
+Array.prototype.values()
+Inheritance:
+Function
+Własności
+Function.arguments
+Function.caller
+Function.displayName
+Function.length
+Function.name
+Metody
+Function.prototype.apply()
+Function.prototype.bind()
+Function.prototype.call()
+Function.prototype.toSource()
+Function.prototype.toString()
+Object
+Własności
+Object.prototype.constructor
+Object.prototype.__proto__
+Metody
+Object.prototype.__defineGetter__()
+Object.prototype.__defineSetter__()
+Object.prototype.__lookupGetter__()
+Object.prototype.__lookupSetter__()
+Object.prototype.hasOwnProperty()
+Object.prototype.isPrototypeOf()
+Object.prototype.propertyIsEnumerable()
+Object.setPrototypeOf()
+Object.prototype.toLocaleString()
+Object.prototype.toSource()
+Object.prototype.toString()
+Object.prototype.valueOf()
+Web Technologies
+Learn Web Development
+About MDN
+Feedback
+About
+MDN Web Docs Store
+Contact Us
+Firefox
+MDN
+MDN on Twitter
+MDN on Github
+Mozilla
+Mozilla on Twitter
+Mozilla on Instagram
+© 2005-2021 Mozilla and individual contributors. Content is available under these licenses.
+
+Terms
+Privacy
+Cookies
+        `
+        function numberLetters(sign) {
+            return sign.match(/[a-zA-Z0-9]/);            
+        }
+
+        function lowerCased(sign) {
+            return sign.toLowerCase();
+        }
+
+        function signCounter(counts, sign) {
+            counts[sign] 
+            ? counts[sign] = counts[sign] + 1 
+            : counts[sign] = 1;
+
+            return counts;
+        }
+
+        const countedText = textOfMdnMap
+            .split('')
+            .filter(numberLetters)
+            .map(lowerCased)
+            .reduce(signCounter, {});
+
+        function sortedByValue(a,b) {
+            return a[1] - b[1];
+        }
+
+        const sortedResult = Object
+            .entries(countedText)
+            .sort(sortedByValue);
+        
+        console.log(sortedResult);
+
+
+
+    </script>
+</body>
+</html>
