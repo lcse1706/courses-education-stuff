@@ -1,4 +1,4 @@
-// Task Class: Represens Task
+// Task Class: Represents Task
 
 class Task {
     constructor(title){
