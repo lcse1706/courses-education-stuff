@@ -38,6 +38,17 @@ function Slider(slider) {
         applyClasses();
     }
 
+    function moveByKey(e) {
+        if( e.key === 'ArrowRight' ) {
+            move();
+        }
+        if( e.key === 'ArrowLeft' ) {
+            move('back');
+        }
+        console.log('works')
+    }
+
+
 
     //when slider is created, run startSlider function
     startSlider();
@@ -47,6 +58,7 @@ function Slider(slider) {
 
     prevButton.addEventListener('click', () => move('back'))
     nextButton.addEventListener('click', move)
+    slider.addEventListener('keyup', (e) => moveByKey(e));
 
 }
 
