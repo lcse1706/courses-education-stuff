@@ -3,8 +3,6 @@ const username = document.getElementById('username');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
-const errMessage = document.querySelector('small');
-
 
 // check minimum if input have 3-15 signs
 function checkInputLength(input) {
@@ -18,7 +16,6 @@ function checkInputLength(input) {
             }
     })
 }
-
 //check if both password are the same
 function checkPassword (password, password2){
     if( password && password2 && (password.value !== password2.value)){
@@ -36,17 +33,14 @@ function validateEmail(input) {
         input.parentElement.querySelector('small').innerText = createError(input.id, 'is not valid');
     }
 }
-
-//green
 //create error message
 function createError(input, text){
     return input.charAt(0).toUpperCase() + input.slice(1) + ' ' + text;
 }
-
+//red green functions
 function showSuccess(item) {
     item.parentElement.className = 'form-control success';
 }
-
 function showError(item) {
     item.parentElement.className = 'form-control error';
     item.parentElement.querySelector('small').innerText = createError(item.id, 'is required')
@@ -57,19 +51,14 @@ function checkingInput(input){
         (item.value === '') ? showError(item) : showSuccess(item)
         console.log('checking inputs');
     })
-}        
-            
-
+}                 
 //handle Submit 
 function handleSubmit(e){
     e.preventDefault();
-
     checkingInput([username, email, password, password2]);
     validateEmail(email);
     checkInputLength([username, password, password2]);
     checkPassword(password, password2);
-
 }
-
 // Event on submit
 form.addEventListener('submit', (e) => handleSubmit(e));
