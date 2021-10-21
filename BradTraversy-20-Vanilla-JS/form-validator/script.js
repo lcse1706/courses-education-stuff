@@ -21,8 +21,11 @@ function checkInputLength(input) {
 
 //check if both password are the same
 function checkPassword (password, password2){
-    console.log('checking pass');
-    return (password.value === password2.value)
+    if( password && password2 && (password.value !== password2.value)){
+        
+        showError(password2);
+        password2.parentElement.querySelector('small').innerText = createError('' , 'Passwords are not the same');
+    }
 }
 // validate email
 function validateEmail(input) {
@@ -64,6 +67,7 @@ function handleSubmit(e){
     checkingInput([username, email, password, password2]);
     validateEmail(email);
     checkInputLength([username, password, password2]);
+    checkPassword(password, password2);
 
 }
 
