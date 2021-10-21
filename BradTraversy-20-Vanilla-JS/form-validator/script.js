@@ -7,77 +7,54 @@ const errMessage = document.querySelector('small');
 
 
 // check minimum if input have 3-15 signs
+function checkInput(item) {
+    return (item.value.length > 3 && item.value.length < 15);
+  }
 
 //check if both password are the same
-
+function checkPassword (password, password2){
+    console.log('checking pass');
+    return (password.value === password2.value)
+}
 // validate email
-
 function validateEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if (!(re.test(String(email.value).toLowerCase()))) {
-        (email.parentElement.classList.add('error'));
+        showError(email);
+        email.parentElement.querySelector('small').innerText = createError(email.id, 'is not valid');
     }
-    
-    
-    
-
-    // return re.test(String(email.value).toLowerCase());
 }
 
-// red green class
-
-function isValid(item, boolean) {
-    
-    if(boolean == 'true'){
-        item.parentElement.classList.add('succes');
-    } else {
-        item.parentElement.classList.add('error');
-    }
-
-}
-
+//green
 //create error message
-
-function createError(item, text){
-    const error = item + ' ' + text;
-    return error;
+function createError(input, text){
+    return input.charAt(0).toUpperCase() + input.slice(1) + ' ' + text;
 }
 
-function capitalizeElement(input) {
-    const cap = input.charAt(0).toUpperCase() + input.slice(1);
-    return cap;
+function showSuccess(item) {
+    item.parentElement.className = 'form-control success';
 }
 
+function showError(item) {
+    item.parentElement.className = 'form-control error';
+}
 //check inputs, add success or error
-function checkInput(input){
-    input.forEach((item) => {
-        
-        const formControl = item.parentElement;
-        
-        formControl.className = 'form-control';
-        if(!!item.value.trim()) {
-            formControl.classList.add('success');
-        } else {
-            formControl.classList.add('error');
-            formControl.querySelector('small').innerHTML = createError(capitalizeElement(item.id), 'is not valid')
-        }
+function checkingInput(input){
+    input.forEach((item) => { 
+        (item.value === '') ? showError(item) : showSuccess(item)
+        console.log('checking inputs');
     })
-}
-
+}        
+            
 
 //handle Submit 
 function handleSubmit(e){
     e.preventDefault();
 
-    checkInput([username, email, password, password2]);
+    checkingInput([username, email, password, password2]);
     validateEmail(email);
-    
-
 }
 
 // Event on submit
-
 form.addEventListener('submit', (e) => handleSubmit(e));
-
-
