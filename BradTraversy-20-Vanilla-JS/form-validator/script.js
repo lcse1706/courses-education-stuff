@@ -7,9 +7,17 @@ const errMessage = document.querySelector('small');
 
 
 // check minimum if input have 3-15 signs
-function checkInput(item) {
-    return (item.value.length > 3 && item.value.length < 15);
-  }
+function checkInputLength(input) {
+    input.forEach ( (item) => {
+            if (item.value.length <= 3 && item.value !=='') {
+                showError(item);
+                item.parentElement.querySelector('small').innerText = createError(item.id, 'is too short');
+            } else if(item.value.length > 15 && item.value !==''){
+                showError(item);
+                item.parentElement.querySelector('small').innerText = createError(item.id, 'is too long');
+            }
+    })
+}
 
 //check if both password are the same
 function checkPassword (password, password2){
@@ -17,12 +25,12 @@ function checkPassword (password, password2){
     return (password.value === password2.value)
 }
 // validate email
-function validateEmail(email) {
+function validateEmail(input) {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    if (!(re.test(String(email.value).toLowerCase()))) {
-        showError(email);
-        email.parentElement.querySelector('small').innerText = createError(email.id, 'is not valid');
+    if (!(re.test(String(input.value).toLowerCase())) && input.value !=='') {
+        showError(input);
+        input.parentElement.querySelector('small').innerText = createError(input.id, 'is not valid');
     }
 }
 
@@ -38,6 +46,7 @@ function showSuccess(item) {
 
 function showError(item) {
     item.parentElement.className = 'form-control error';
+    item.parentElement.querySelector('small').innerText = createError(item.id, 'is required')
 }
 //check inputs, add success or error
 function checkingInput(input){
@@ -54,6 +63,8 @@ function handleSubmit(e){
 
     checkingInput([username, email, password, password2]);
     validateEmail(email);
+    checkInputLength([username, password, password2]);
+
 }
 
 // Event on submit
