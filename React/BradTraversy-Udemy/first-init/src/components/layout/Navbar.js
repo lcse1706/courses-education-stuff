@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// sc - impt
 import PropTypes from 'prop-types';
 
 export class Navbar extends Component {
@@ -7,6 +8,7 @@ export class Navbar extends Component {
     icon: 'fab fa-github',
   };
 
+  //Set the prop types
   static propTypes = {
     title: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired,

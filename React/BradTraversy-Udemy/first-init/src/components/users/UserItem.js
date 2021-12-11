@@ -9,7 +9,7 @@ class UserItem extends Component {
   };
 
   render() {
-    const { avatar_url, login, html_url } = this.state;
+    const { avatar_url, login, html_url } = this.props.user;
 
     return (
       <div className='card text-center'>
