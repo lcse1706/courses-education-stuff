@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
+//possible to destructure straightly in props
 const UserItem = ({ user: { avatar_url, login, html_url } }) => {
   return (
     <div className='card text-center'>
@@ -17,6 +19,10 @@ const UserItem = ({ user: { avatar_url, login, html_url } }) => {
       </div>
     </div>
   );
+};
+
+UserItem.propTypes = {
+  user: PropTypes.object.isRequired, //ptor - prototype object req
 };
 
 export default UserItem;
