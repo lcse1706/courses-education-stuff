@@ -5,7 +5,6 @@ export class Name extends Component {
     super(props);
     this.state = {
       value: '',
-      display: '',
     };
   }
 
@@ -15,7 +14,8 @@ export class Name extends Component {
 
   submitHandler = e => {
     e.preventDefault();
-    this.setState({ name: this.state.value });
+    console.log('Submiting from Name.js');
+    this.props.displayValue(this.state.value);
   };
 
   render() {
@@ -30,7 +30,6 @@ export class Name extends Component {
           />
           <input type='submit' value='Submit' />
         </form>
-        <h1>{this.state.name}</h1>
       </div>
     );
   }
