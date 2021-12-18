@@ -5,15 +5,27 @@ export class Search extends Component {
     text: '',
   };
 
+  onChange = e => {
+    //[e.target.name] - to make function universal. If we have name='email' it will still work with email value in state object.
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  onSubmit = e => {
+    e.preventDefault();
+    this.props.searchUsers(this.state.text);
+    this.setState({ text: '' });
+  };
+
   render() {
     return (
       <div>
-        <form className='form'>
+        <form className='form' onSubmit={this.onSubmit}>
           <input
             type='text'
             name='text'
             placeholder='Search Users...'
             value={this.state.text}
+            onChange={this.onChange}
           />
           <input
             type='submit'
