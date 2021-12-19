@@ -27,7 +27,6 @@
  */
 
 function validatePassword(password) {
-  console.log(password.length);
   if (password.length >= 3 && password.length <= 10) {
     if (
       password.indexOf('#') !== -1 ||
@@ -38,9 +37,7 @@ function validatePassword(password) {
         return true;
       } else return false;
     } else return false;
-  } else {
-    return false;
-  }
+  } else return false;
 }
 /* Weryfikacja */
 

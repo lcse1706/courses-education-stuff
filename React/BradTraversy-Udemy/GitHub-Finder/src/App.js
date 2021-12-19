@@ -44,7 +44,6 @@ class App extends Component {
     );
 
     this.setState({ user: res.data, loading: false });
-    console.log('This is our user: ', this.state.user);
   };
 
   clearUsers = () => {
@@ -90,9 +89,14 @@ class App extends Component {
               <Route path='/about' element={<About />} />
               <Route
                 path='/user/:login'
-                element={
-                  <User getUser={this.getUser} user={user} loading={loading} />
-                }
+                render={props => (
+                  <User
+                    {...props}
+                    getUser={this.getUser}
+                    user={user}
+                    loading={loading}
+                  />
+                )}
               />
             </Routes>
           </div>

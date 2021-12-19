@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 
 export class User extends Component {
   componentDidMount() {
-    this.props.getUser('bradtraversy');
-    console.log(this.props.user);
+    // stuck when trying to display route. New version of react, dont let to pass props threw render. Video: Single User Component & Data
+
+    this.props.getUser(this.props.match.params.login);
   }
 
   render() {
@@ -24,11 +25,7 @@ export class User extends Component {
 
     const { loading } = this.props;
 
-    return (
-      <div>
-        {name} {bio}
-      </div>
-    );
+    return <div>{name}</div>;
   }
 }
 
