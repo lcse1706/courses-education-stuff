@@ -33,8 +33,7 @@ function zipIt(first, second) {
   const output = [];
 
   for (let i = 0; i < num1.length + num2.length; i++) {
-    output.push(num1[i]);
-    output.push(num2[i]);
+    output.push(num1[i], num2[i]);
   }
 
   return output.join('');
