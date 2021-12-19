@@ -30,9 +30,10 @@ function validatePassword(password) {
   checkIfPassword(password);
   if (password.length >= 3 && password.length <= 10) {
     if (
-      password.indexOf('#') !== -1 ||
-      password.indexOf('!') !== -1 ||
-      password.indexOf('@') !== -1
+      //   password.indexOf('#') !== -1 ||
+      //   password.indexOf('!') !== -1 ||
+      //   password.indexOf('@') !== -1
+      password.match(/[!,@,#]/)
     ) {
       if (password.match(/[0-9]/)) {
         return true;
