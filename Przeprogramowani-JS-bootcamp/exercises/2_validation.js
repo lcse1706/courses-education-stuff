@@ -27,6 +27,7 @@
  */
 
 function validatePassword(password) {
+  checkIfPassword(password);
   if (password.length >= 3 && password.length <= 10) {
     if (
       password.indexOf('#') !== -1 ||
@@ -38,6 +39,12 @@ function validatePassword(password) {
       } else return false;
     } else return false;
   } else return false;
+}
+
+function checkIfPassword(password) {
+  if (!(typeof password === 'string' || password instanceof String)) {
+    throw new Error(`${password} is not a string`);
+  }
 }
 /* Weryfikacja */
 
