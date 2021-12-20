@@ -62,5 +62,4 @@ verify(
   useEmoji('Właśnie nadbuduję swoje skille w JS'),
   'Właśnie nadbuduję swoje skille w JS'
 );
-verify(useEmoji('Buduję samochód'), '🧱 🏎');
-verify(useEmoji('BuDuję SaMocHód.'), '🧱 🏎.');
+verify(useEmoji('BuDuję SaMocHód'), '🧱 🏎');
