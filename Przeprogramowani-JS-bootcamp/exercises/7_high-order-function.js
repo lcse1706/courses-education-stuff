@@ -52,8 +52,6 @@ function verify(input, goal) {
 
 const course = withPrefix('I ty Opanujesz JavaScript, ');
 
-console.log(course('Łukasz'));
-
 try {
   verify(course('Marta'), 'I ty Opanujesz JavaScript, Marta');
   verify(course('Janek'), 'I ty Opanujesz JavaScript, Janek');
