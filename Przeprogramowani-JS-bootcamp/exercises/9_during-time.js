@@ -387,19 +387,13 @@ function totalDuration() {
     const time = lesson.length.split(':');
     console.log(time);
     if (lesson.name[1] === '1') {
-      Adam += +time[0] * 60;
-      Adam += +time[1];
-      console.log(Adam);
+      Adam += +time[0] * 60 + +time[1];
     }
     if (lesson.name[1] === '2') {
-      Przemek += +time[0] * 60;
-      Przemek += +time[1];
-      console.log(Przemek);
+      Przemek += +time[0] * 60 + +time[1];
     }
     if (lesson.name[1] === '3') {
-      Marcin += +time[0] * 60;
-      Marcin += +time[1];
-      console.log(Marcin);
+      Marcin += +time[0] * 60 + +time[1];
     }
   });
 
