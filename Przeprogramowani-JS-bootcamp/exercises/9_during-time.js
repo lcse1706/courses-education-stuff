@@ -405,12 +405,18 @@ function totalDuration() {
 
   total = Adam + Przemek + Marcin;
 
-  return `Kurs Opanuj JavaScript trwa ${Math.floor(total / 3600)} godzin i ${
-    total % 60
-  } minut.
-  Moduł Adama: ${Math.floor(Adam / 3600)} godzin ${Adam % 60} minut
-  Moduł Przemka: ${Math.floor(Przemek / 3600)} godzin ${Przemek % 60} minut
-  Moduł Marcina: ${Math.floor(Marcin / 3600)} godzin ${Marcin % 60} minut`;
+  return `Kurs Opanuj JavaScript trwa ${
+    Math.floor(total / 3600) % 24
+  } godzin i ${Math.floor(total / 60) % 60} minut.
+  Moduł Adama: ${Math.floor(Adam / 3600) % 24} godzin ${
+    Math.floor(Adam / 60) % 60
+  } minut
+  Moduł Przemka: ${Math.floor(Przemek / 3600) % 24} godzin ${
+    Math.floor(Przemek / 60) % 60
+  } minut
+  Moduł Marcina: ${Math.floor(Marcin / 3600) % 24} godzin ${
+    Math.floor(Marcin / 60) % 60
+  } minut`;
 }
 
 console.log(totalDuration());
