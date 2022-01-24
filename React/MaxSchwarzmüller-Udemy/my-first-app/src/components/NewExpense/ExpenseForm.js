@@ -1,22 +1,23 @@
 import { useState } from 'react';
 import './ExpenseForm.css';
 
-const ExpenseForm = (props) => {
+const ExpenseForm = props => {
   const [enteredTitle, setEnteredTitle] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
 
-  const titleChangeHandler = (e) => {
+  const titleChangeHandler = e => {
     setEnteredTitle(e.target.value);
   };
-  const dateChangeHandler = (e) => {
+  const dateChangeHandler = e => {
     setEnteredDate(e.target.value);
+    console.log(e.target);
   };
-  const amountChangeHandler = (e) => {
+  const amountChangeHandler = e => {
     setEnteredAmount(e.target.value);
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = e => {
     e.preventDefault();
 
     const expenseData = {
@@ -57,8 +58,9 @@ const ExpenseForm = (props) => {
           <label>Date</label>
           <input
             type='date'
-            min='2019-01-01'
-            max='2022-12-31'
+            // value='2021-02-22'
+            // min='2019-01-01'
+            // max='2022-12-31'
             value={enteredDate}
             onClick={dateChangeHandler}
           />
