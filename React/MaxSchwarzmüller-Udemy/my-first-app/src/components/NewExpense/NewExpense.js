@@ -15,10 +15,6 @@ const NewExpense = props => {
     setIsEdditing(false);
   };
 
-  // const addNewExpense = () => {
-  //   console.log('adujemy');
-  // };
-
   const startEditingHandler = () => {
     setIsEdditing(true);
   };
