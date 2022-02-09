@@ -11,7 +11,6 @@ function App() {
         { name: userName, age: userAge, id: Math.random().toString() },
       ];
     });
-    console.log('addUsersListHandler');
   };
 
   return (
