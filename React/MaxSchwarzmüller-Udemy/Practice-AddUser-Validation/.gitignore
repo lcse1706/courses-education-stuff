@@ -11,6 +11,9 @@
 # production
 /build
 
+# test
+/react-complete-guide-code-11-practice-food-order-app
+
 # misc
 .DS_Store
 .env.local
