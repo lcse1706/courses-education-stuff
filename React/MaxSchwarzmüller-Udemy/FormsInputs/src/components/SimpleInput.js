@@ -1,39 +1,56 @@
-import { useRef, useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const SimpleInput = props => {
   const [enteredName, setEnteredName] = useState('');
-  const [enteredNameisValid, setEnteredNameValid] = useState(false);
   const [inputIsTouched, setInputIsTouched] = useState(false);
-  const refName = useRef();
+  const [formIsValid, setFormIsValid] = useState(false);
+  // const [enteredNameisValid, setEnteredNameValid] = useState(false);
+  // const refName = useRef();
+
+  const enteredNameisValid = enteredName.trim() !== '';
+  const nameInputIsInvalid = !enteredNameisValid && inputIsTouched;
+
+  useEffect(() => {
+    if (enteredNameisValid) {
+      setFormIsValid(true);
+    } else {
+      setFormIsValid(false);
+    }
+  }, [enteredNameisValid]);
 
   const changeNameHandler = e => {
     setEnteredName(e.target.value);
 
-    if (e.target.value.trim() !== '') {
-      setEnteredNameValid(true);
-    }
+    // every key stroke
+
+    // if (e.target.value.trim() !== '') {
+    //   setEnteredNameValid(true);
+    // }
   };
+
+  // when lost focus
 
   const nameInputBlurHandler = e => {
     setInputIsTouched(true);
-    if (enteredName.trim() === '') {
-      setEnteredNameValid(false);
-    }
+    // if (enteredName.trim() === '') {
+    //   setEnteredNameValid(false);
+    // }
   };
+
+  // on submit
 
   const submitHandler = e => {
     e.preventDefault();
     setInputIsTouched(true);
 
-    if (enteredName.trim() === '') {
-      setEnteredNameValid(false);
+    if (!enteredNameisValid) {
       return;
     }
-    console.log(enteredName);
-    console.log(refName.current.value);
-  };
 
-  const nameInputIsInvalid = !enteredNameisValid && inputIsTouched;
+    console.log(enteredName);
+    setEnteredName('');
+    setInputIsTouched(false);
+  };
 
   const nameInputClasses = nameInputIsInvalid
     ? 'form-control invalid'
@@ -48,14 +65,15 @@ const SimpleInput = props => {
           id='name'
           onChange={changeNameHandler}
           onBlur={nameInputBlurHandler}
-          ref={refName}
+          value={enteredName}
+          // ref={refName}
         />
         {nameInputIsInvalid && (
           <p className='error-text'>Name field cannot be empty.</p>
         )}
       </div>
       <div className='form-actions'>
-        <button>Submit</button>
+        <button disabled={!formIsValid}>Submit</button>
       </div>
     </form>
   );
