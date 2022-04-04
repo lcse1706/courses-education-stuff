@@ -82,7 +82,7 @@ const BasicForm = props => {
             onBlur={nameBlurHandler}
             value={enteredNameValue}
           />
-          {nameInputIsInvalid && <p>Name is Invalid.</p>}
+          {nameInputIsInvalid && <p>Please enter a name.</p>}
         </div>
         <div className={lastNameInputClassHandler}>
           <label htmlFor='lname'>Last Name</label>
@@ -93,7 +93,7 @@ const BasicForm = props => {
             onBlur={lastNameBlurHandler}
             value={enteredLastNameValue}
           />
-          {lastNameInputIsInvalid && <p>Last Name is Invalid.</p>}
+          {lastNameInputIsInvalid && <p>Please enter a last name.</p>}
         </div>
       </div>
       <div className={emailInputClassHandler}>
