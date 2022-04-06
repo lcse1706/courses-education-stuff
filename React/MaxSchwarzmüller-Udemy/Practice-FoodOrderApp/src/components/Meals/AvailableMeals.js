@@ -5,6 +5,8 @@ import classes from './AvailableMeals.module.css';
 
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [httpErorr, setHttpError] = useState();
 
   useEffect(() => {
     const fetchMeals = async () => {
@@ -30,10 +32,30 @@ const AvailableMeals = () => {
       }
 
       setMeals(loadedMeals);
+      setIsLoading(false);
     };
 
-    fetchMeals();
+    fetchMeals().catch(error => {
+      setIsLoading(false);
+      setHttpError(error.message);
+    });
   }, []);
+
+  if (isLoading) {
+    return (
+      <section className={classes.MealsLoading}>
+        <p>Loading...</p>
+      </section>
+    );
+  }
+
+  if (httpErorr) {
+    return (
+      <section className={classes.MealsError}>
+        <p>{httpErorr}</p>
+      </section>
+    );
+  }
 
   const mealsList = meals.map(meal => (
     <MealItem
