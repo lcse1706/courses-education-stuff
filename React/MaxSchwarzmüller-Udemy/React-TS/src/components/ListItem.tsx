@@ -1,8 +1,11 @@
 import React from "react";
 
-const ListItem:React.FC<{ text: string}> = (props) => {
+import styles from './ListItem.module.css'
+
+const ListItem:React.FC<{ text: string, removeItem: () => void}> = (props) => {
     return(
-        <li>{props.text}</li>
+        <li className={styles.item} onClick={props.removeItem}>{props.text}</li>
+        
     )
 }
 
