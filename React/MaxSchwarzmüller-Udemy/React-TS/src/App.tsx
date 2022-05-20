@@ -7,11 +7,6 @@ import Newtodo from './components/NewTodo';
 function App() {
   const [todos, setTodos] = useState<Todo[]>([])
 
-  // let todos = [
-  //   new Todo('Learn React'),
-  //   new Todo('Learn Typescript')
-  // ];
-
   const addTodoHandler = (text:string) => {
       setTodos((prevTodos) => {
         return prevTodos.concat(new Todo(text))
