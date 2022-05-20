@@ -13,6 +13,7 @@ function App() {
       } )
 
   }
+  
 
   const removeItemHandler = (id:string) => {
     setTodos((prevTodos) => {
