@@ -1,6 +1,8 @@
+type Combine = number | string;
+
 function combine(
-  input1: number | string,
-  input2: number | string,
+  input1: Combine,
+  input2: Combine,
   resultConversion: "as-number" | "as-text"
 ) {
   let result;
