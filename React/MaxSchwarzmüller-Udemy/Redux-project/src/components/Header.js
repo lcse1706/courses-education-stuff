@@ -1,11 +1,11 @@
-import classes from './Header.module.css';
-import { useDispatch } from 'react-redux';
-import { authActions } from '../store/index';
+import classes from "./Header.module.css";
+import { useDispatch } from "react-redux";
+import { authActions } from "../store/auth";
 
 const Header = () => {
   const dispatch = useDispatch();
 
-  const logoutHandler = e => {
+  const logoutHandler = (e) => {
     e.preventDefault();
     dispatch(authActions.logout());
   };
@@ -16,10 +16,10 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <a href='/'>My Products</a>
+            <a href="/">My Products</a>
           </li>
           <li>
-            <a href='/'>My Sales</a>
+            <a href="/">My Sales</a>
           </li>
           <li>
             <button onClick={logoutHandler}>Logout</button>
