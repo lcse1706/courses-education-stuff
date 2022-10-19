@@ -20,6 +20,7 @@ const QuoteList = (props) => {
 
   const queryParams = new URLSearchParams(location.search);
 
+  //We can use simply location.search and check if location.search === '?sort=asc'
   const isSortingAscending = queryParams.get("sort") === "asc";
 
   const sortedQuotes = sortQuotes(props.quotes, isSortingAscending);
