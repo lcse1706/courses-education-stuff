@@ -1,0 +1,41 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 50vh;
+    background-color: #ddd;
+    font-family: sans-serif;
+}
+
+h1{
+    font-size: 35px;
+}
+
+form * {
+    font-size: 25px;
+}
+
+.delete {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: white;
+    width: 1.4rem;
+    height: 1.4rem;
+    background: rgb(255, 0, 0);
+  }
+
+  li {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    padding: 7px;
+    list-style: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    overflow-wrap: normal;
+  }
+  
+  .item {
+    width: 70%;
+  }
