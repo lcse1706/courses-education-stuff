@@ -1,15 +1,15 @@
 import React from 'react';
 import './App.css';
-import EventComponent from './events/EventComponent';
+// import EventComponent from './events/EventComponent';
 // import GuestList from './state/GueastList';
-// import UserSearch from './state/UserSearch';
+import UserSearch from './refs/UserSearch';
 
 function App() {
   return (
     <div className="App">
      {/* <GuestList/> */}
-     {/* <UserSearch/> */}
-     <EventComponent />
+     <UserSearch/>
+     {/* <EventComponent /> */}
     </div>
   );
 }
