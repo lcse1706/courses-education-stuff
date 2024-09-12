@@ -4,15 +4,20 @@ const { Pool } = require('pg');
 
 // Inicjalizacja aplikacji Express
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200,
+  })
+);
 app.use(express.json());
 
 // Połączenie z bazą danych PostgreSQL
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
-  database: 'postgres',
-  password: '123',
+  database: 'my_database',
+  password: '1234',
   port: 5432,
 });
 
