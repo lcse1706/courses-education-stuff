@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-const AddUserForm = () => {
+const AddUserForm = ({ refreshUsers }) => {
   const [name, setName] = useState('');
-  const [gender, setGender] = useState('M');
+  const [gender, setGender] = useState('Male');
   const [age, setAge] = useState('');
 
   const handleSubmit = e => {
@@ -13,7 +13,13 @@ const AddUserForm = () => {
       body: JSON.stringify({ name, gender, age: parseInt(age) }),
     })
       .then(response => response.json())
-      .then(data => console.log('User added:', data));
+      .then(data => {
+        console.log('User added:', data);
+        refreshUsers();
+        setName('');
+        setGender('Male');
+        setAge('');
+      });
   };
 
   return (
@@ -29,8 +35,8 @@ const AddUserForm = () => {
           value={gender}
           onChange={e => setGender(e.target.value)}
         >
-          <option value="M">Man</option>
-          <option value="W">Woman</option>
+          <option value="Male">Man</option>
+          <option value="Female">Woman</option>
         </select>
       </div>
       <div>

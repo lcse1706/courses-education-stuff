@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import AddUserForm from './AddUserForm';
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
 
-  useEffect(() => {
+  const fetchUsers = () => {
     fetch('http://localhost:3001/users')
       .then(response => response.json())
       .then(data => {
@@ -11,10 +12,14 @@ const UserList = () => {
           setUsers(data);
         } else {
           console.log('Data is not an array:', data);
-          setUsers([]); // Ustawienie pustej tablicy w przypadku błędu
+          setUsers([]);
         }
       })
       .catch(error => console.log(error));
+  };
+
+  useEffect(() => {
+    fetchUsers();
   }, []);
 
   const deleteUser = id => {
@@ -34,6 +39,7 @@ const UserList = () => {
           </li>
         ))}
       </ul>
+      <AddUserForm refreshUsers={fetchUsers} />
     </div>
   );
 };
